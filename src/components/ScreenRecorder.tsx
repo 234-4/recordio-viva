@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from "react";
 import { toast } from "sonner";
 import { 
@@ -72,11 +71,9 @@ const ScreenRecorder = () => {
     setPreparing(true);
     
     try {
-      const displayMediaOptions: DisplayMediaStreamOptions = {
-        video: {
-          cursor: "always",
-          displaySurface: "monitor",
-        },
+      // Fix: Remove the cursor and displaySurface properties that aren't part of the standard type
+      const displayMediaOptions = {
+        video: true,
         audio: audioEnabled,
       };
       
