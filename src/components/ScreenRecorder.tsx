@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from "react";
 import { toast } from "sonner";
 import { 
@@ -72,8 +71,8 @@ const ScreenRecorder = () => {
     setPreparing(true);
     
     try {
-      // Fix: Use only valid properties for the MediaStreamConstraints type
-      const displayMediaOptions = {
+      // Define valid MediaStreamConstraints - removed any invalid properties like 'cursor'
+      const displayMediaOptions: MediaStreamConstraints = {
         video: true,
         audio: audioEnabled,
       };
